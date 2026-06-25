@@ -11,6 +11,38 @@ pkgs.stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     pkgs.dpkg
+    pkgs.autoPatchelfHook
+    pkgs.makeWrapper
+  ];
+
+  buildInputs = with pkgs; [
+    glib
+    glib-networking
+    libgpg-error
+    libffi
+    libpcre2
+    libselinux
+    libsepol
+    gtk3
+    nss
+    mesa
+    alsa-lib
+    libsecret
+    libXScrnSaver
+    libXtst
+    libxkbcommon
+    expat
+    cups
+    libxkbfile
+    libXrandr
+    libX11
+    libXi
+    libGL
+    libXxf86vm
+    nspr
+    atk
+    cairo
+    pango
   ];
 
   unpackPhase = ''
