@@ -23,7 +23,7 @@ pkgs.stdenv.mkDerivation rec {
 
     # Create symlink as done in aur-build
     install -dm755 $out/bin
-    ln -sf "/usr/share/devin-desktop/bin/devin-desktop" $out/bin/devin-desktop
+    ln -sf "../share/devin-desktop/bin/devin-desktop" $out/bin/devin-desktop
   '';
 
   meta = with pkgs.lib; {
