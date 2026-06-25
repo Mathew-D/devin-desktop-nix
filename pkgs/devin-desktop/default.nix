@@ -20,7 +20,7 @@ pkgs.stdenv.mkDerivation rec {
     glib-networking
     libgpg-error
     libffi
-    libpcre2
+    pcre2
     libselinux
     libsepol
     gtk3
