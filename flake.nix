@@ -47,6 +47,11 @@
             libXxf86vm
             glib
             glib-networking
+            libgpg-error
+            libffi
+            libpcre2
+            libselinux
+            libsepol
             libXtst
             nspr
             atk
@@ -70,7 +75,7 @@
           targetPkgs = ps: with ps; [
             gtk3 nss mesa alsa-lib libsecret libXScrnSaver libXtst
             xdg-utils libxkbcommon dbus expat cups libxkbfile libXrandr
-            libX11 libXi libxkbcommon libGL libXxf86vm glib glib-networking libXtst nspr atk cairo pango
+            libX11 libXi libxkbcommon libGL libXxf86vm glib glib-networking libgpg-error libffi libpcre2 libselinux libsepol libXtst nspr atk cairo pango
             libnotify libdbusmenu gtk2 gvfs vulkan-loader
           ];
           runScript = "bash";
