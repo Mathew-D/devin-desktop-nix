@@ -16,10 +16,10 @@
       in
       {
         # Build the devin-desktop package from the .deb file
-        packages.devin-desktop = pkgs.callPackage ./pkgs/devin-desktop { };
+        packages.devin-desktop-unwrapped = pkgs.callPackage ./pkgs/devin-desktop { };
 
         # This creates the executable 'devin-desktop' app with the embedded FHS sandbox
-        packages.default = pkgs.buildFHSEnv {
+        packages.devin-desktop = pkgs.buildFHSEnv {
           name = "devin-desktop";
 
           targetPkgs = ps: with ps; [
@@ -49,7 +49,7 @@
             glib-networking
             libgpg-error
             libffi
-            libpcre2
+            pcre2
             libselinux
             libsepol
             libXtst
@@ -66,8 +66,10 @@
             vulkan-loader
           ];
 
-          runScript = "${self.packages.${system}.devin-desktop}/bin/devin-desktop";
+          runScript = "${self.packages.${system}.devin-desktop-unwrapped}/bin/devin-desktop";
         };
+
+        packages.default = self.packages.${system}.devin-desktop;
 
         # This lets you run 'nix develop' to test things interactively in an FHS shell
         devShells.default = (pkgs.buildFHSEnv {
