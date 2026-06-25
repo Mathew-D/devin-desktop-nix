@@ -1,0 +1,56 @@
+{
+  description = "Devin Desktop FHS environment flake";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    utils.url = "github:numtide/flake-utils";
+  };
+
+  outputs = { self, nixpkgs, utils }:
+    utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true; # Needed for Devin Desktop
+        };
+      in
+      {
+        # 1. This creates the executable 'devin-desktop' app with the embedded FHS sandbox
+        packages.default = pkgs.buildFHSEnv {
+          name = "devin-desktop";
+          
+          # Target packages placed into standard FHS directory layouts
+          targetPkgs = ps: with ps; [
+            # Put your exact dependencies here
+            libX11
+            libXi
+            libxkbcommon
+            libGL
+            libXxf86vm
+            glib
+            libXtst
+
+            # Standard desktop tool additions usually required by Electron apps
+            alsa-lib
+            nss
+            nspr
+            atk
+            cairo
+            pango
+          ];
+
+          # The script that runs inside the FHS container upon execution
+          runScript = "devin-desktop"; 
+        };
+
+        # 2. This lets you run 'nix develop' to test things interactively in an FHS shell
+        devShells.default = (pkgs.buildFHSEnv {
+          name = "devin-dev-env";
+          targetPkgs = ps: with ps; [
+            libX11 libXi libxkbcommon libGL libXxf86vm glib libXtst
+          ];
+          runScript = "bash";
+        }).env;
+      }
+    );
+}
