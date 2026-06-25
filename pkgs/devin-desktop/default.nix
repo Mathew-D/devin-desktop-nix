@@ -43,6 +43,8 @@ pkgs.stdenv.mkDerivation rec {
     atk
     cairo
     pango
+    webkitgtk_4_1
+    libsoup_3
   ];
 
   unpackPhase = ''
