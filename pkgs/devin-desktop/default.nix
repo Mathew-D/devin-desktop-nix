@@ -15,6 +15,8 @@ pkgs.stdenv.mkDerivation rec {
 
   unpackPhase = ''
     dpkg-deb -x $src .
+    # Remove setuid bit from chrome-sandbox to avoid permission errors
+    chmod -s usr/share/devin-desktop/chrome-sandbox || true
   '';
 
   installPhase = ''
