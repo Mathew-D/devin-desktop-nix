@@ -5,8 +5,8 @@ pkgs.stdenv.mkDerivation rec {
   version = "3.2.23";
 
   src = pkgs.fetchurl {
-    url = "https://windsurf-stable.codeiumdata.com/linux-x64-deb/stable/3bd47f77998b2e526fed61a11015b78d6205f295/Devin-linux-x64-${version}.deb";
-    hash = "sha256-b83f89c28f3a5657f58ff91e2c909bdabd25d803e09f678d2ff1e5d9b84f9b7f";
+    url = "https://windsurf-stable.codeiumdata.com/linux-x64-deb/stable/3bd47f77998b2e526fed61a11015b78d6205f295/Devin-linux-x64-3.2.23.deb";
+    hash = "sha256-uD+Jwo86Vlf1j/keLJCb2r0l2APgn2eNL/Hl2bhPm38=";
   };
 
   nativeBuildInputs = [
