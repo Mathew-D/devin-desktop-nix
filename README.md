@@ -6,22 +6,6 @@ This setup is designed so you can open Devin Desktop and immediately compile, ru
 
 ---
 
-## What this provides
-
-This flake sets up:
-
-### 🦀 Rust toolchain
-
-* `rustc`
-* `cargo`
-* `rustfmt`
-* `clippy` (optional depending on config)
-
-### ☕ Java toolchain
-
-* JDK (Java Development Kit)
-* Build support for Java-based projects
-
 ### 🧩 Native runtime libraries
 
 Required for GUI/tools and interoperability:
@@ -40,8 +24,7 @@ Required for GUI/tools and interoperability:
 
 This environment is intended for:
 
-* Building Rust applications (`cargo build`)
-* Running Rust tests (`cargo test`)
+* Building Rust applications (`cargo build`
 * Building Java applications (`javac`, Gradle, Maven projects)
 * Running Java tests (`gradle test`, `mvn test`)
 * Using Devin Desktop as a development environment with full toolchain support
