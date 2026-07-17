@@ -58,6 +58,15 @@ pkgs.stdenv.mkDerivation rec {
     # Create symlink as done in aur-build
     install -dm755 $out/bin
     ln -sf "../share/devin-desktop/bin/devin-desktop" $out/bin/devin-desktop
+
+    # Fix desktop file paths
+    substituteInPlace $out/share/applications/devin-desktop.desktop \
+      --replace-fail "/usr/share/devin-desktop/devin-desktop" "$out/share/devin-desktop/devin-desktop" \
+      --replace-fail "Icon=devin-desktop" "Icon=$out/share/pixmaps/devin-desktop.png"
+
+    substituteInPlace $out/share/applications/devin-desktop-url-handler.desktop \
+      --replace-fail "/usr/share/devin-desktop/devin-desktop" "$out/share/devin-desktop/devin-desktop" \
+      --replace-fail "Icon=devin-desktop" "Icon=$out/share/pixmaps/devin-desktop.png"
   '';
 
   meta = with pkgs.lib; {
