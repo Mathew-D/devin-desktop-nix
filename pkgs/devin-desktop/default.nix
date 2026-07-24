@@ -45,7 +45,6 @@ pkgs.stdenv.mkDerivation rec {
     pango
     webkitgtk_4_1
     libsoup_3
-    just
   ];
 
   unpackPhase = ''
