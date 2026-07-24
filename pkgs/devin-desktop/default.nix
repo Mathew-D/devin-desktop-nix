@@ -6,7 +6,7 @@ pkgs.stdenv.mkDerivation rec {
 
   src = pkgs.fetchurl {
     url = "https://windsurf-stable.codeiumdata.com/linux-x64-deb/stable/2c489dfc762456657db8662309c0d5e76e886397/Devin-linux-x64-3.5.17.deb";
-    hash = "sha256-d5bfedb51e3325db91ab6450c11cf57171769548210b81960199afa5a286e954";
+    sha256 = "d5bfedb51e3325db91ab6450c11cf57171769548210b81960199afa5a286e954";
   };
 
   nativeBuildInputs = [
