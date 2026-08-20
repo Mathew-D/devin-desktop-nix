@@ -78,13 +78,13 @@
             # Copy icon
             cp ${self.packages.${system}.devin-desktop-unwrapped}/share/pixmaps/devin-desktop.png $out/share/pixmaps/
 
-            # Fix desktop file Exec paths to point to FHS wrapper
+            # Fix desktop file Exec paths to point to the FHS wrapper binary
             substituteInPlace $out/share/applications/devin-desktop.desktop \
-              --replace-fail "${self.packages.${system}.devin-desktop-unwrapped}/share/devin-desktop/devin-desktop" "$out/bin/devin-desktop" \
+              --replace-fail "${self.packages.${system}.devin-desktop-unwrapped}/bin/devin-desktop" "$out/bin/devin-desktop" \
               --replace-fail "${self.packages.${system}.devin-desktop-unwrapped}/share/pixmaps/devin-desktop.png" "$out/share/pixmaps/devin-desktop.png"
 
             substituteInPlace $out/share/applications/devin-desktop-url-handler.desktop \
-              --replace-fail "${self.packages.${system}.devin-desktop-unwrapped}/share/devin-desktop/devin-desktop" "$out/bin/devin-desktop" \
+              --replace-fail "${self.packages.${system}.devin-desktop-unwrapped}/bin/devin-desktop" "$out/bin/devin-desktop" \
               --replace-fail "${self.packages.${system}.devin-desktop-unwrapped}/share/pixmaps/devin-desktop.png" "$out/share/pixmaps/devin-desktop.png"
           '';
         };

@@ -61,11 +61,11 @@ pkgs.stdenv.mkDerivation rec {
 
     # Fix desktop file paths
     substituteInPlace $out/share/applications/devin-desktop.desktop \
-      --replace-fail "/usr/share/devin-desktop/devin-desktop" "$out/share/devin-desktop/devin-desktop" \
+      --replace-fail "/usr/share/devin-desktop/devin-desktop" "$out/bin/devin-desktop" \
       --replace-fail "Icon=devin-desktop" "Icon=$out/share/pixmaps/devin-desktop.png"
 
     substituteInPlace $out/share/applications/devin-desktop-url-handler.desktop \
-      --replace-fail "/usr/share/devin-desktop/devin-desktop" "$out/share/devin-desktop/devin-desktop" \
+      --replace-fail "/usr/share/devin-desktop/devin-desktop" "$out/bin/devin-desktop" \
       --replace-fail "Icon=devin-desktop" "Icon=$out/share/pixmaps/devin-desktop.png"
   '';
 

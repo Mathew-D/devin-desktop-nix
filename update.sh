@@ -25,7 +25,7 @@ echo "SHA256: $SHA256"
 echo "Updating pkgs/devin-desktop/default.nix..."
 sed -i "s/version = \".*\";/version = \"$VERSION\";/" pkgs/devin-desktop/default.nix
 sed -i "s|url = \".*\";|url = \"$URL\";|" pkgs/devin-desktop/default.nix
-sed -i "s|hash = \".*\";|hash = \"sha256-$SHA256\";|" pkgs/devin-desktop/default.nix
+sed -i "s|sha256 = \".*\";|sha256 = \"$SHA256\";|" pkgs/devin-desktop/default.nix
 
 echo "✓ Updated to version $VERSION"
 echo "Run 'nix flake update' to update the flake lock if needed"
