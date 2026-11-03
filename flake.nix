@@ -61,7 +61,6 @@
             # Optional runtime dependencies
             libnotify
             libdbusmenu
-            gtk2
             gvfs
             vulkan-loader
           ];
